@@ -107,20 +107,10 @@ body {
     box-shadow: 0 3px 10px rgba(255,255,255,0.7);
 }
 
-.screen.patto {
-    background-image: url("images/pattocatto.png");
-}
-
-.screen.doge {
-    background-image: url("images/doge.png");
-}
-
-.screen.meme {
-    background-image: url("images/memes.gif");
-}
-
-.screen.comrade {
-    background-image: url("images/comrade.png");
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 p.text {

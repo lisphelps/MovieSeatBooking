@@ -4,6 +4,7 @@ const count = document.getElementById('count');
 const total = document.getElementById('total');
 const movieSelect = document.getElementById('movie');
 const option = document.querySelector('option');
+const screen = document.getElementsByClassName('screen');
 
 populateUI();
 
@@ -52,22 +53,31 @@ function populateUI() {
 movieSelect.addEventListener('change', e => {
     ticketPrice = +e.target.value;
     setMovieData(e.target.selectedIndex, e.target.value);
+
     updateSelectedCount();
-    updateMovieImage();
 });
 
 // Update movie image
-function updateMovieImage() { 
-    if (movieSelect.contains('doge')) {
-        document.getElementById('screen').classList.add('doge');
-    } else if (movieSelect.contains('patto')) {
-        document.getElementById('screen').classList.add('patto');
-    } else if (movieSelect.contains('meme')) {
-        document.getElementById('screen').classList.add('meme');
-    } else if (movieSelect.contains('comrade')) {
-        document.getElementById('screen').classList.add('comrade');
-        }
+const movieImages = {
+    '10': {
+      'img':'images/doge.png',
+    },
+    '12': {
+      'img':'images/pattocatto.png',
+    },
+    '8': {
+      'img':'images/memes.gif',
+    },
+    '9': {
+      'img':'images/comrade.png',
     }
+  };
+  function updateMovieImage() {
+    const img = document.getElementById("moviePic");
+    const values = movieImages[this.value];
+    img.src = values['img'];
+}
+document.getElementById("movie").onchange = updateMovieImage;
 
 // Seat click event
 container.addEventListener('click', e => {
