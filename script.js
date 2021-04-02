@@ -29,6 +29,7 @@ function updateSelectedCount() {
 const seatsIndex = [...selectedSeats].map(seat => 
 [...seats].indexOf(seat));
 localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
+console.log(JSON.stringify(seatsIndex));
 }
 
 // Get data from local storage and populate UI
@@ -72,12 +73,13 @@ const movieImages = {
       'img':'images/comrade.png',
     }
   };
+
   function updateMovieImage() {
     const img = document.getElementById("moviePic");
     const values = movieImages[this.value];
     img.src = values['img'];
 }
-document.getElementById("movie").onchange = updateMovieImage;
+movieSelect.onchange = updateMovieImage;
 
 // Seat click event
 container.addEventListener('click', e => {
@@ -93,4 +95,5 @@ container.addEventListener('click', e => {
 
 // Initial count and total set
 updateSelectedCount();
+
 
